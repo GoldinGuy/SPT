@@ -39,13 +39,13 @@ export default class App extends React.Component {
 
     componentDidMount() {
         const firebaseConfig = {
-            apiKey: 'AIzaSyAIHv2d1Y4mGCd-k-QqK-H_rBoAp15vAzc',
-            authDomain: 'sustainable-app-mitlaunch2019.firebaseapp.com',
-            databaseURL: 'https://sustainable-app-mitlaunch2019.firebaseio.com',
-            projectId: 'sustainable-app-mitlaunch2019',
-            storageBucket: 'sustainable-app-mitlaunch2019.appspot.com',
-            messagingSenderId: '1098142246440',
-            appId: '1:1098142246440:web:2ae9cfa8ed1ef3ae'
+            apiKey: 'AIzaSyASKpkaXZgBs9aNOalgCQUJ2CEhL7YoNuU',
+            authDomain: 'spt-firebase.firebaseapp.com',
+            databaseURL: 'https://spt-firebase.firebaseio.com',
+            projectId: 'spt-firebase',
+            storageBucket: '',
+            messagingSenderId: '1092864377619',
+            appId: '1:1092864377619:web:43fd3ee52593d1de'
         };
         firebase.initializeApp(firebaseConfig);
     }
