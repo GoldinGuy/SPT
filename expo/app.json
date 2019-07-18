@@ -1,27 +1,25 @@
 {
-  "expo": {
-    "name": "sustainability-app",
-    "description": "A very interesting project.",
-    "slug": "sustainability-app",
-    "privacy": "public",
-    "sdkVersion": "31.0.0",
-    "platforms": ["ios", "android"],
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
+    "expo": {
+        "name": "summer-tracking-app",
+        "description": "A very interesting project.",
+        "slug": "summer-tracking-app",
+        "privacy": "public",
+        "sdkVersion": "31.0.0",
+        "platforms": ["ios", "android"],
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/images/icon.png",
+        "splash": {
+            "image": "./assets/images/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#ffffff"
+        },
+        "updates": {
+            "fallbackToCacheTimeout": 0
+        },
+        "assetBundlePatterns": ["**/*"],
+        "ios": {
+            "supportsTablet": true
+        }
     }
-  }
 }

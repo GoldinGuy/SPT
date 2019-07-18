@@ -1,4 +1,4 @@
-# Sustainability App
+# Summer Program Location Tracking App
 
 Built using Firebase and React Native
 
