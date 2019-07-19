@@ -4,5 +4,8 @@
     "semi": true,
     "singleQuote": true,
     "proseWrap": "preserve",
-    "printWidth": 100
+    "printWidth": 100,
+    "prettier.eslintIntegration": true,
+    "prettier.stylelintIntegration": true
+
 }

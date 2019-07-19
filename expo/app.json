@@ -19,7 +19,22 @@
         },
         "assetBundlePatterns": ["**/*"],
         "ios": {
+            "config": {
+                "googleMapsApiKey": "AIzaSyCtJNRKXHc25G1SGxyusD8QiR5rnQRnhOM"
+            },
+            "bundleIdentifier": "host.exp.mitlaunch2019.summertrackingapp",
             "supportsTablet": true
+        },
+        "android": {
+            "config": {
+                "googleMaps": {
+                    "apiKey": "AIzaSyBeRuTPzKNsZtpq0shBNO2fXS5tQ0GlJjk"
+                }
+            },
+            "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"],
+
+            "package": "host.exp.mitlaunch2019.summertrackingapp",
+            "versionCode": 2
         }
     }
 }

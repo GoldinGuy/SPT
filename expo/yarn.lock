@@ -1127,6 +1127,22 @@
   resolved "https://registry.yarnpkg.com/@types/websql/-/websql-0.0.27.tgz#621a666a7f02018e7cbb4abab956a25736c27d71"
   integrity sha1-Yhpman8CAY58u0q6uVaiVzbCfXE=
 
+"@unimodules/core@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@unimodules/core/-/core-2.0.1.tgz#e5d760aa1a01885871d2d5c3f1fd3404552e5fcb"
+  integrity sha512-evbJUEAf8TvIfzR2/T9npWuqyYE8042qvmE7uWF+uDAt8KclMS9g7clbNTEG1ck5ov9AYWMMgohFaPfDCkJicw==
+  dependencies:
+    compare-versions "^3.4.0"
+
+"@unimodules/react-native-adapter@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@unimodules/react-native-adapter/-/react-native-adapter-2.0.1.tgz#021f1f7e2247d296986b0d8f1949a4d8e748ce9c"
+  integrity sha512-D9CSGLIWX0iWLv4Voq0i+xo0YZcraTN1uCdJ+EepwmBplRHDrDCoh2M9Upm4aIso5812pXOBHmGf31AhIKKhYA==
+  dependencies:
+    invariant "^2.2.4"
+    lodash "^4.5.0"
+    prop-types "^15.6.1"
+
 abab@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.0.tgz#aba0ab4c5eee2d4c79d3487d85450fb2376ebb0f"
@@ -2409,6 +2425,11 @@ commondir@^1.0.1:
   resolved "https://registry.yarnpkg.com/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
   integrity sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs=
 
+compare-versions@^3.4.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/compare-versions/-/compare-versions-3.5.0.tgz#85fc22a1ae9612ff730d77fb092295acd056d311"
+  integrity sha512-hX+4kt2Rcwu+x1U0SsEFCn1quURjEjPEGH/cPBlpME/IidGimAdwfMU+B+xDr7et/KTR7VH2+ZqWGerv4NGs2w==
+
 component-emitter@^1.2.1:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/component-emitter/-/component-emitter-1.3.0.tgz#16e4070fba8ae29b679f2215853ee181ab2eabc0"
@@ -3320,6 +3341,13 @@ expo-localization@~1.0.0:
   dependencies:
     expo-core "~1.2.0"
 
+expo-location@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/expo-location/-/expo-location-5.0.1.tgz#697adb49b42018db9e32aa05b7623e0d71250eb9"
+  integrity sha512-YXMrPuYlLfqcHxKjwdc99XjCpeJYWtxu6kqaM9f++u/zjeup95YNnlzeq8uD7YhNuWk8O6boVAFTSXPn9bY+9w==
+  dependencies:
+    invariant "^2.2.4"
+
 expo-location@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/expo-location/-/expo-location-1.1.0.tgz#880e17591f0a8de99ba2c640eb05a07559943771"
@@ -3348,6 +3376,11 @@ expo-permissions-interface@~1.2.0:
   integrity sha512-hHduXuB0+hSymex0ZTJWjlTJffmHt2cEZGLorhwM51r082oudurrpfed7sjGqKu9wSM6TeAjPG3UaLvyWVG/dQ==
   dependencies:
     expo-core "~1.2.0"
+
+expo-permissions@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/expo-permissions/-/expo-permissions-5.0.1.tgz#cc6af49a37ea3ab73e780a8a19f22b7662379941"
+  integrity sha512-cOg9f9TaV8grORTwLSuoPfviDGcJSALjaALvxdmQD5ujPW6lxO6Ofd/s4/dV4L3lJww4HXiurjPJnT5yo+3ydw==
 
 expo-permissions@~1.2.0:
   version "1.2.0"
@@ -5245,6 +5278,11 @@ lodash@^4.0.0, lodash@^4.16.6, lodash@^4.17.11, lodash@^4.17.4, lodash@^4.17.5, 
   version "4.17.13"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.13.tgz#0bdc3a6adc873d2f4e0c4bac285df91b64fc7b93"
   integrity sha512-vm3/XWXfWtRua0FkUyEHBZy8kCPjErNBT9fJx8Zvs+U6zjqPbTUOpkaoum3O5uiA8sm+yNMHXfYkTUHFoMxFNA==
+
+lodash@^4.5.0:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
+  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
 long@^4.0.0:
   version "4.0.0"
