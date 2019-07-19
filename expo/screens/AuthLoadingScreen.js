@@ -5,7 +5,7 @@ class AuthLoadingScreen extends Component {
     render() {
         return (
             <View>
-                <Text>hello</Text>
+                <Text>Finding the Peoples...</Text>
             </View>
         );
     }
