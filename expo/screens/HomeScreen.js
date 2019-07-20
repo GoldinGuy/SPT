@@ -7,6 +7,9 @@ export default class HomeScreen extends React.Component {
     static navigationOptions = {
         header: null
     };
+
+    mapRef;
+
     state = {
         location: null,
         progress: 'Loading Location...'
@@ -29,15 +32,19 @@ export default class HomeScreen extends React.Component {
         }
     };
 
-    componentDidMount() {
-        this.getLocationAsync();
+    async componentDidMount() {
+        await this.getLocationAsync();
+        this.mapRef.fitToSuppliedMarkers(
+          someArrayOfMarkers,
+          false, // not animated
+        );
     }
 
     render() {
         return (
             <View style={{ flex: 1, backgroundColor: '#fff' }}>
                 <Text style={{ textAlign: 'center', marginTop: 20 }}>{this.state.progress}</Text>
-                <MapView
+                <MapView  ref={(ref) => { this.mapRef = ref }}
                     style={{
                         position: 'absolute',
                         top: 50,
