@@ -4,61 +4,61 @@ import { Location, Permissions } from 'expo';
 import MapView, { AnimatedRegion } from 'react-native-maps';
 
 export default class HomeScreen extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            region: null,
-            initialRegion: null
+  constructor(props){
+    super(props);
+    this.state = {
+      region: null,
+      initialRegion: null,
+    }
+  }
+
+  async getCurrentLocation() {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        let region = {
+          latitude: parseFloat(position.coords.latitude),
+          longitude: parseFloat(position.coords.longitude),
+          latitudeDelta: 0.002,
+          longitudeDelta: 0.002,
         };
-    }
+        this.setState({
+          initialRegion: region
+        });
+      },
+      error => console.log("ERROR: " + error),
+      {
+        enableHighAccuracy: true,
+        timeout: 20000,
+        maximumAge: 1000
+      }
+    );
+  }
 
-    async getCurrentLocation() {
-        navigator.geolocation.getCurrentPosition(
-            position => {
-                let region = {
-                    latitude: parseFloat(position.coords.latitude),
-                    longitude: parseFloat(position.coords.longitude),
-                    latitudeDelta: 0.002,
-                    longitudeDelta: 0.002
-                };
-                this.setState({
-                    initialRegion: region
-                });
-            },
-            error => console.log('ERROR: ' + error),
-            {
-                enableHighAccuracy: true,
-                timeout: 20000,
-                maximumAge: 1000
-            }
-        );
-    }
+  componentDidMount(){
+    this.getCurrentLocation();
+  }
 
-    componentDidMount() {
-        this.getCurrentLocation();
-    }
-
-    render() {
-        return (
-            <MapView
-                provider="google"
-                style={{
-                    position: 'absolute',
-                    top: 50,
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    backgroundColor: 'white'
-                }}
-                region={this.state.mapRegion}
-                followUserLocation={true}
-                ref={ref => (this.mapView = ref)}
-                zoomEnabled={true}
-                showsUserLocation={true}
-                initialRegion={this.state.initialRegion}
-            />
-        );
-    }
+  render() {
+    return (
+      <MapView
+        provider="google"
+        style={{
+          position: 'absolute',
+          top: 50,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          backgroundColor: 'white'
+        }}
+        region={this.state.mapRegion}
+        followUserLocation={true}
+        ref={ref => (this.mapView = ref)}
+        zoomEnabled={true}
+        showsUserLocation={true}
+        initialRegion={this.state.initialRegion}>
+      </MapView>
+    )
+  }
 }
 
 // export default class HomeScreen extends React.Component {
