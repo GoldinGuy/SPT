@@ -1,4 +1,5 @@
 import React from 'react';
+import { theme, withGalio, GalioProvider } from 'galio-framework'
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import { Provider } from 'react-redux';

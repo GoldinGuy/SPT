@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput } from 'react-native';
+import { theme, withGalio, GalioProvider, Button } from 'galio-framework'
 import { connect } from 'react-redux';
 
 import { loginUser, createUser } from '../redux/actions';
@@ -62,10 +63,18 @@ class SignInScreen extends Component {
                     value={this.state.password}
                 />
                 <Button
+                    color="success" radius={100}
+                    style={{
+                        padding: 25,
+                        margin: 20 }}
                     onPress={() => this.props.loginUser(this.state.email, this.state.password)}
                     title="Log In"
                 />
                 <Button
+                color="warning" radius={100}
+                style={{
+                    padding: 25,
+                    margin: 20 }}
                     onPress={() => this.props.createUser(this.state.email, this.state.password)}
                     title="Sign Up"
                 />
