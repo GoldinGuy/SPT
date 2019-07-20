@@ -57,7 +57,7 @@ class SignInScreen extends Component {
                         height: 40,
                         borderColor: 'gray',
                         borderWidth: 1,
-                        width: 400
+                        width: 300
                     }}
                     value={this.state.password}
                 />
