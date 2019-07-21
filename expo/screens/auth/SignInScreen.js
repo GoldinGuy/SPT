@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput } from 'react-native';
-import { theme, withGalio, GalioProvider, Button } from 'galio-framework'
+import { View, TextInput } from 'react-native';
+import { Button, Text } from 'galio-framework';
 import { connect } from 'react-redux';
 
 import { loginUser, createUser } from '../../redux/actions';
@@ -39,33 +39,39 @@ class SignInScreen extends Component {
                     value={this.state.password}
                 />
                 <Button
-                color="error" radius={100}
-                style={{
-                    padding: 25,
-                    margin: 20 }}
+                    color="error"
+                    radius={100}
+                    style={{
+                        margin: 20
+                    }}
                     onPress={() => this.props.loginUser(this.state.email, this.state.password)}
-                    title="Log In"
-                />
+                >
+                    Log In
+                </Button>
                 <Button
-                color="success" radius={100}
-                style={{
-                    padding: 25,
-                    margin: 20 }}
+                    color="success"
+                    radius={100}
+                    style={{
+                        margin: 20
+                    }}
                     onPress={() =>
                         this.props.createUser(this.state.email, this.state.password, false)
                     }
-                    title="Student Sign Up"
-                />
+                >
+                    Student Sign Up
+                </Button>
                 <Button
-                color="warning" radius={100}
-                style={{
-                    padding: 25,
-                    margin: 20 }}
+                    color="warning"
+                    radius={100}
+                    style={{
+                        margin: 20
+                    }}
                     onPress={() =>
                         this.props.createUser(this.state.email, this.state.password, true)
                     }
-                    title="Admin Sign Up"
-                />
+                >
+                    Admin Sign Up
+                </Button>
                 {this.props.loading ? <Text style={{ color: 'green' }}>Loading...</Text> : null}
                 <Text style={{ color: 'red' }}>{this.props.error}</Text>
             </View>

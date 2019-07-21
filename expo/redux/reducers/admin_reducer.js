@@ -2,18 +2,17 @@ import * as types from '../types';
 
 const INITIAL_STATE = {
     loading: false,
-    user: null,
-    error: ''
+    error: '',
+    camps: []
 };
 
 export default function(state = INITIAL_STATE, action) {
-    console.log(action.type);
     switch (action.type) {
-        case types.LOGIN_USER:
+        case types.GET_CAMPS:
             return { ...state, loading: true, error: '' };
-        case types.LOGIN_USER_SUCCESS:
-            return { ...state, user: action.payload, error: '', loading: false };
-        case types.LOGIN_USER_ERROR:
+        case types.GET_CAMPS_SUCCESS:
+            return { ...state, camps: action.payload, error: '', loading: false };
+        case types.GET_CAMPS_FAILURE:
             return { ...state, error: action.payload, loading: false };
         default:
             return state;
