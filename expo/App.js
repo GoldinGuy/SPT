@@ -1,5 +1,17 @@
 import React from 'react';
-import { theme, withGalio, GalioProvider } from 'galio-framework'
+import * as React from 'react';
+import { mapping, light as lightTheme } from '@eva-design/eva';
+import { ApplicationProvider, Layout } from 'react-native-ui-kitten';
+
+const App = () => (
+  <ApplicationProvider
+    mapping={mapping}
+    theme={lightTheme}>
+    <Layout style={{flex: 1}}/>
+  </ApplicationProvider>
+);
+
+// import { theme, withGalio, GalioProvider } from 'galio-framework'
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import { Provider } from 'react-redux';

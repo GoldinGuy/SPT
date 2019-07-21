@@ -1,9 +1,39 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput } from 'react-native';
-import { theme, withGalio, GalioProvider, Button } from 'galio-framework'
+// import { theme, withGalio, GalioProvider, Button } from 'galio-framework'
 import { connect } from 'react-redux';
-
 import { loginUser, createUser } from '../../redux/actions';
+
+import * as React from 'react';
+import { Layout, Text, Button } from 'react-native-ui-kitten';
+import { StyleSheet } from 'react-native';
+import { mapping, light as lightTheme } from '@eva-design/eva';
+import { ApplicationProvider } from 'react-native-ui-kitten';
+
+const HomeScreen = () => (
+  <Layout style={styles.container}>
+    <Text style={styles.text} category='h4'>Welcome to losing your privacy</Text>
+    <Button>BUTTON</Button>
+  </Layout>
+);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  text: {
+    marginVertical: 16,
+  },
+});
+
+const App = () => (
+  <ApplicationProvider
+    mapping={mapping}
+    theme={lightTheme}>
+    <HomeScreen/>
+  </ApplicationProvider>
+);
 
 class SignInScreen extends Component {
     static navigationOptions = {
@@ -39,7 +69,6 @@ class SignInScreen extends Component {
                     value={this.state.password}
                 />
                 <Button
-                color="error" radius={100}
                 style={{
                     padding: 25,
                     margin: 20 }}
@@ -47,7 +76,6 @@ class SignInScreen extends Component {
                     title="Log In"
                 />
                 <Button
-                color="success" radius={100}
                 style={{
                     padding: 25,
                     margin: 20 }}
@@ -57,7 +85,6 @@ class SignInScreen extends Component {
                     title="Student Sign Up"
                 />
                 <Button
-                color="warning" radius={100}
                 style={{
                     padding: 25,
                     margin: 20 }}
