@@ -1,65 +1,110 @@
 import React from 'react';
-import { Dimensions, Platform, StyleSheet, Text, View } from 'react-native';
+import { TextInput, View } from 'react-native';
 import { Location, Permissions } from 'expo';
 import MapView, { AnimatedRegion } from 'react-native-maps';
+import { connect } from 'react-redux';
+import { Text } from 'galio-framework';
+import { getCamp } from '../redux/actions';
+import { addUser } from '../redux/actions';
+import EnterCode from '../components/general/EnterCode';
 
-export default class HomeScreen extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      region: null,
-      initialRegion: null,
+class StudentScreen extends React.Component {
+    state = {
+        region: null,
+        initialRegion: null,
+        code: ''
+    };
+
+    componentDidMount() {
+        this.getCurrentLocation();
+        if (this.props.user.code) {
+            this.props.getCamp(this.props.user.code);
+        }
     }
-  }
 
-  async getCurrentLocation() {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        let region = {
-          latitude: parseFloat(position.coords.latitude),
-          longitude: parseFloat(position.coords.longitude),
-          latitudeDelta: 0.002,
-          longitudeDelta: 0.002,
-        };
-        this.setState({
-          initialRegion: region
-        });
-      },
-      error => console.log("ERROR: " + error),
-      {
-        enableHighAccuracy: true,
-        timeout: 20000,
-        maximumAge: 1000
-      }
-    );
-  }
+    async getCurrentLocation() {
+        navigator.geolocation.getCurrentPosition(
+            position => {
+                let region = {
+                    latitude: parseFloat(position.coords.latitude),
+                    longitude: parseFloat(position.coords.longitude),
+                    latitudeDelta: 0.002,
+                    longitudeDelta: 0.002
+                };
+                this.setState({
+                    initialRegion: region
+                });
+            },
+            error => console.log('ERROR: ' + error),
+            {
+                enableHighAccuracy: true,
+                timeout: 20000,
+                maximumAge: 1000
+            }
+        );
+    }
 
-  componentDidMount(){
-    this.getCurrentLocation();
-  }
+    renderCampView() {
+        let camp = <Text style={{ textAlign: 'center' }}>Loading...</Text>;
 
-  render() {
-    return (
-      <MapView
-        provider="google"
-        style={{
-          position: 'absolute',
-          top: 50,
-          bottom: 0,
-          left: 0,
-          right: 0,
-          backgroundColor: 'white'
-        }}
-        region={this.state.mapRegion}
-        followUserLocation={true}
-        ref={ref => (this.mapView = ref)}
-        zoomEnabled={true}
-        showsUserLocation={true}
-        initialRegion={this.state.initialRegion}>
-      </MapView>
-    )
-  }
+        if (this.props.camp) {
+            camp = (
+                <View>
+                    <Text h1 style={{ textAlign: 'center' }}>
+                        {this.props.camp.name}
+                    </Text>
+                </View>
+            );
+        }
+
+        return (
+            <View>
+                {camp}
+                {this.props.loading ? <Text style={{ color: 'green' }}>Loading...</Text> : null}
+                <Text style={{ color: 'red' }}>{this.props.error}</Text>
+            </View>
+        );
+    }
+
+    render() {
+        console.log(this.props.user.code);
+        return (
+            <View style={{ flex: 1 }}>
+                <MapView
+                    provider="google"
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        bottom: 300,
+                        left: 0,
+                        right: 0,
+                        backgroundColor: 'white'
+                    }}
+                    region={this.state.mapRegion}
+                    followUserLocation={true}
+                    ref={ref => (this.mapView = ref)}
+                    zoomEnabled={true}
+                    showsUserLocation={true}
+                    initialRegion={this.state.initialRegion}
+                />
+                <View style={{ marginTop: 550 }}>
+                    {this.props.user.code ? this.renderCampView() : <EnterCode />}
+                </View>
+            </View>
+        );
+    }
 }
+
+const mapStateToProps = state => {
+    const { error, loading, camp } = state.student;
+    const { user } = state.auth;
+    return { error, loading, user, camp };
+};
+
+export default connect(
+    mapStateToProps,
+    { getCamp }
+)(StudentScreen);
 
 // export default class HomeScreen extends React.Component {
 //   constructor(props){

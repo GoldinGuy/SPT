@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import * as React from 'react';
 import { mapping, light as lightTheme } from '@eva-design/eva';
 import { ApplicationProvider, Layout } from 'react-native-ui-kitten';
@@ -12,6 +13,9 @@ const App = () => (
 );
 
 // import { theme, withGalio, GalioProvider } from 'galio-framework'
+=======
+import { theme, withGalio, GalioProvider } from 'galio-framework';
+>>>>>>> 7acf72818bcc6b2368e5daa7e525a0e2e79dab81
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import { Provider } from 'react-redux';
@@ -78,7 +82,7 @@ export default class App extends React.Component {
                 <View
                     style={{
                         flex: 1,
-                        backgroundColor: 'red'
+                        backgroundColor: '#FFDDEE'
                     }}
                 >
                     <AppNavigator />
